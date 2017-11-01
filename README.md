@@ -1,3 +1,3 @@
-# React Native Navigation with redux!
+# Frontend mobile INET 2017
 
-cool
+Frontend mobile para el sistema a desarrollar en las olimpiadas de programacion INET 2017.
