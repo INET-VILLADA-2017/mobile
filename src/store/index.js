@@ -1,8 +1,9 @@
-import { createStore, applyMiddleware } from 'redux';
-import AppReducer from '../reducers';
-import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux'
+import AppReducer from '../reducers'
+import thunk from 'redux-thunk'
+import logger from 'redux-logger'
 
-let middleware = [thunk];
+let middleware = [thunk, logger]
 
 export default function configureStore(initialState = {}) {
 	return createStore(

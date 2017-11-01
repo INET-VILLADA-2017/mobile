@@ -3,9 +3,10 @@ import {
     USER_LOGEDOUT,
     PERMISSIONS_FETCHED
 } from '../constants/actionTypes'
-import { hideLogout } from './display'
+import { MAIN_SCREEN } from '../constants/screenNames'
 import { SERVER_URL, LOGIN_URL } from '../utils/config'
 import axios from 'axios'
+import {changeAppRoot} from './nav'
 
 const userLogedIn = (token, id) => ({
     type: USER_LOGEDIN,
@@ -24,6 +25,7 @@ export const login = (username, password) => (
             })
             dispatch(userLogedIn(data.key, data.user))
             dispatch(getPermissions(data.user))
+            dispatch(changeAppRoot(MAIN_SCREEN))
         }
         catch (e) {
             console.log(e)
@@ -52,6 +54,5 @@ const userLogedout = () => ({
 export const logout = () => (
     (dispatch) => {
         dispatch(userLogedout())
-        dispatch(hideLogout())
     }
 )

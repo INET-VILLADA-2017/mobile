@@ -5,7 +5,7 @@ import {
 } from '../constants/actionTypes'
 
 const initialState = {
-    isAuthenticated: false,
+    isAuthenticated: true,
     token: null,
     id: null,
     admin: false,

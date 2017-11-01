@@ -7,13 +7,18 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"apsl-react-native-button": "^3.1.0",
+		"axios": "^0.17.0",
+		"moment": "^2.19.1",
 		"react": "16.0.0-alpha.12",
 		"react-native": "0.47.2",
 		"react-native-navigation": "^1.1.205",
 		"react-redux": "^5.0.6",
 		"redux": "^3.7.2",
+		"redux-logger": "^3.0.6",
 		"redux-thunk": "^2.2.0",
-		"redux-watch": "^1.1.1"
+		"redux-watch": "^1.1.1",
+		"tcomb-form-native": "^0.6.11"
 	},
 	"devDependencies": {
 		"babel-jest": "20.0.3",

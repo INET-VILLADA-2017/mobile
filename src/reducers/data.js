@@ -2,7 +2,9 @@ import {
     NURSERIES_FETCHED,
     NURSERIES_SET_CURRENT,
     SAMPLES_FETCHED,
-    PARAMS_FETCHED
+    PARAMS_FETCHED,
+    SET_CONFIG,
+    GET_CONFIG
 } from '../constants/actionTypes'
 
 const initialState = {
@@ -10,7 +12,8 @@ const initialState = {
     samples: [],
     nurseries: [],
     parameters: [],
-    current: null
+    current: null,
+    config: null
 }
 
 export default function data(state = initialState, action = {}) {
@@ -35,6 +38,16 @@ export default function data(state = initialState, action = {}) {
             return {
                 ...state,
                 parameters: payload.parameters
+            }
+        case GET_CONFIG:
+            return {
+                ...state,
+                config: payload.config
+            }
+        case SET_CONFIG:
+            return {
+                ...state,
+                config: payload.config
             }
     }
     return state

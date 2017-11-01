@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native'
+import {COLOR_WHITE, PRIMARY_COLOR} from '../../styles/colors'
 
 const styles = StyleSheet.create({
     container : {
@@ -6,9 +7,16 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
+        width: '80%',
+        marginLeft: '10%'
     },
-    centeredText: {
-        textAlign: 'center',
+    button: {
+        backgroundColor: PRIMARY_COLOR,
+        borderWidth: 0,
+        marginTop: 20
+    },
+    buttonText: {
+        color: COLOR_WHITE
     }
 })
 

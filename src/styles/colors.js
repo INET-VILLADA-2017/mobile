@@ -15,3 +15,5 @@ export const COLOR_BLACK = '#000000';
 export const COLOR_LIGHT_GRAY = '#cccccc';
 export const COLOR_GRAY = '#777777';
 export const COLOR_BACKDROP = 'rgba(0, 0, 0, 0.6)';
+
+export const COLOR_BACKGROUND = '#ECF2F6';

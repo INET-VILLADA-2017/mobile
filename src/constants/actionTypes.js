@@ -10,3 +10,6 @@ export const USER_LOGEDIN = 'USER_LOGEDIN'
 export const USER_LOGEDOUT = 'USER_LOGEDOUT'
 
 export const PERMISSIONS_FETCHED = 'PERMISSIONS_FETCHED'
+
+export const GET_CONFIG = 'GET_CONFIG'
+export const SET_CONFIG = 'SET_CONFIG'

@@ -1,6 +1,7 @@
 import { Navigation } from 'react-native-navigation'
 import configureStore from './store'
 import { registerScreens } from './screens'
+import { getNurseries, getParams, configGet } from './actions/data'
 import { Provider } from 'react-redux'
 import watch from 'redux-watch'
 import { appInitialized } from './actions/nav'
@@ -54,6 +55,9 @@ export default class App {
                 return
 
             case MAIN_SCREEN:
+                store.dispatch(getNurseries())
+                store.dispatch(getParams())
+                store.dispatch(configGet())
                 Navigation.startTabBasedApp({
                     tabs: [
                         {
