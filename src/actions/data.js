@@ -79,7 +79,6 @@ const getConfig = (config) => ({
 export const configGet = () => (
     async (dispatch) => {
         const {data} = await axios.get(`${SERVER_URL}config/`)
-        console.log(data)
         dispatch(getConfig(data[0]))
     }
 )
@@ -93,19 +92,21 @@ const configSet = (config) => ({
 
 export const setConfig = (config) => (
     async (dispatch, getState) => {
-        const { config } = getState().data
-        await axios.put(`${SERVER_URL}config/${config.id}/`, {
+        let id = getState().data.config.id
+        console.log('MIRA')
+        console.log(config)
+        await axios.put(`${SERVER_URL}config/${id}/`, {
             "watering_period_1": config.watering_period_1,
-            "degree_of_shadow": config.watering_period_2,
-            "spray_volume": config.spray,
-            "watering_period_2": config.shadow
+            "degree_of_shadow": config.degree_of_shadow,
+            "spray_volume": config.spray_volume,
+            "watering_period_2": config.watering_period_2
         })
         dispatch(configSet({
             "watering_period_1": config.watering_period_1,
-            "degree_of_shadow": config.watering_period_2,
-            "spray_volume": config.spray,
-            "watering_period_2": config.shadow,
-            "id" : config.id
+            "degree_of_shadow": config.degree_of_shadow,
+            "spray_volume": config.spray_volume,
+            "watering_period_2": config.watering_period_2,
+            "id" : id
         }))
     }
 )

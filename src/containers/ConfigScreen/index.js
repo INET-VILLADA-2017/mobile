@@ -8,18 +8,18 @@ import Button from 'apsl-react-native-button'
 import styles from './styles'
 
 const Schema = t.struct({
-    spray: t.String,
-    shadow: t.String,
+    spray_volume: t.String,
+    degree_of_shadow: t.String,
     watering_period_1: t.String,
     watering_period_2: t.String,
 })
 
 const options = {
     fields: {
-        spray: {
+        spray_volume: {
             label: 'Volumen de rociado'
         },
-        shadow: {
+        degree_of_shadow: {
             label: 'Grado de sombra'
         },
         watering_period_1: {
@@ -33,6 +33,35 @@ const options = {
 
 class ConfigScreen extends Component {
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            formValues: {
+                spray_volume: '',
+                degree_of_shadow: '',
+                watering_period_1: '',
+                watering_period_2: ''
+            }
+        }
+    }
+
+    componentWillReceiveProps(props) {
+        console.log('RECIBI')
+        console.log(props)
+        if (props.config) {
+            this.setState({
+                formValues: {
+                    spray_volume: props.config.spray_volume,
+                    degree_of_shadow: props.config.degree_of_shadow,
+                    watering_period_1: props.config.watering_period_1,
+                    watering_period_2: props.config.watering_period_2
+                }
+            })
+        }
+    }
+
+    onChange = (formValues) => this.setState({formValues})
+
     submit = () => {
         let value = this.refs.form.getValue()
         if (value) {
@@ -44,7 +73,7 @@ class ConfigScreen extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.wrapper}>
-                    <t.form.Form ref={'form'} type={Schema} options={options} />
+                    <t.form.Form ref={'form'} type={Schema} options={options} onChange={this.onChange} value={this.state.formValues} />
                     <Button onPress={this.submit} textStyle={styles.buttonText} style={styles.button}>
                         {'Enviar'}
                     </Button>
@@ -61,7 +90,8 @@ class ConfigScreen extends Component {
 
 const mapStateToProps = state => ({
     nurseries: state.data.nurseries,
-    current: state.data.current
+    current: state.data.current,
+    config: state.data.config
 })
 
 const mapDispatchToProps = dispatch => ({
